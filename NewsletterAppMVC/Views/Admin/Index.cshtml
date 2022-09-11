@@ -1,0 +1,60 @@
+﻿
+
+
+
+@using NewsletterAppMVC.ViewModels
+@model List<SignupVm>
+@* Above two are changed to accept viewmodels instead of models *@
+
+
+<div class="row g-0 m-3">
+    <div class="card col-sm-12 col-md-1-10 col-lg-6 shadow mx-auto">
+        <div class="card-header text-center">
+            <h5 class="m-0">Sing-Ups</h5>
+        </div>
+        <div class="card-body">
+            <div class="row  my-2">
+
+                <div class="col-2 my-2">
+                    <h6>First Name</h6>
+                </div>
+                <div class="col my-2">
+                    <h6>Last Name</h6>
+                </div>
+                <div class="col-4 my-2">
+                    <h6>Email</h6>
+                </div><div class="col my-2 text-center">
+                    <h6>Remove</h6>
+                </div>
+
+            </div>
+
+            @foreach (var signup in Model)
+            {
+                using (Html.BeginForm("Unsubscribe", "Admin", FormMethod.Post))
+                {
+                    <input type="hidden" name="Id" value="@signup.Id" />
+                    <div class="row  my-2">
+                        <div class="col-2 my-2">
+                            @signup.FirstName
+                        </div>
+                        <div class="col my-2">
+                            @signup.LastName
+                        </div>
+                        <div class="col-4 my-2">
+                            @signup.EmailAddress
+                        </div>
+                        <div class="col my-2 text-center">
+                            <button class="btn-danger btn-sm btn ">Unsubscribe</button>
+                        </div>
+                    </div>
+                }
+
+
+
+            }
+
+
+        </div>
+    </div>
+</div>

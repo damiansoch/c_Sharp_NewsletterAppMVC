@@ -5,6 +5,7 @@ using System.Web;
 
 namespace NewsletterAppMVC.Models
 {
+    // this file is only needed for ADO.NET
     public class NewsletterSignUp
     {
         public int Id { get; set; }
